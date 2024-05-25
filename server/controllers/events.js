@@ -18,11 +18,11 @@ eventsRouter.get("/organiser/:organiser", async (request, response) => {
 // TODO: to convert to query params
 eventsRouter.get("/status/:status", async (request, response) => {
   // const user = request.user;
-  console.log(request.query);
+  // console.log(request.query);
 
   const searchCondition = {
     completed: true,
-    incomplete: false,
+    ongoing: false,
     all: undefined,
   };
 

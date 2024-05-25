@@ -9,6 +9,7 @@ const eventsRouter = require("./controllers/events");
 const middleware = require("./utils/middleware");
 // const logger = require("./utils/logger");
 const mongoose = require("mongoose");
+const path = require("path");
 
 mongoose.set("strictQuery", false);
 
@@ -24,12 +25,12 @@ mongoose
   });
 
 app.use(cors());
-app.use(express.static("build"));
+app.use(express.static("dist"));
 app.use(express.json());
-// app.use(middleware.requestLogger);
 
 // app.use("/api/assets", assetsRouter);
-app.get("/", (request, response) => {
+
+app.get("/api", (request, response) => {
   return response.send({ data: "hello" });
 });
 app.use("/api/login", loginRouter);
@@ -45,6 +46,10 @@ app.use("/api/events", eventsRouter);
 // 	const testingRouter = require('./controllers/testing')
 // 	app.use('/api/testing', testingRouter)
 // }
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

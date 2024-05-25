@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
   }
   return (
     <>
-      ProtectedRoute
+      {/* ProtectedRoute */}
       <Outlet />
     </>
   );

@@ -1,12 +1,47 @@
 import axios from "axios";
 import { baseUrl } from "../../utils/config";
+import { getToken } from "./loginService";
 
 const resources = {
   getEvents: "/api/events",
+  getEventsByStatus: "/api/events/status",
+  updateEvent: "/api/events/updateEvent",
 };
 
-export const getEvents = async () => {
-  const response = await axios.get(`${baseUrl}${resources.getEvents}`);
+export const getEvents = async (status) => {
+  // const response = await axios.get(`${baseUrl}${resources.getEvents}`);
+  if (!status) {
+    status = "all";
+  }
+  const response = await axios.get(
+    `${baseUrl}${resources.getEventsByStatus}/${status}`
+  );
 
+  return response.data;
+};
+
+export const updateEvent = async (id, event) => {
+  const response = await axios.patch(
+    `${baseUrl}${resources.updateEvent}/${id}`,
+    event,
+    getToken()
+  );
+  return response.data;
+};
+
+export const deleteEvent = async (id) => {
+  const response = await axios.delete(
+    `${baseUrl}${resources.getEvents}/${id}`,
+    getToken()
+  );
+  return response.data;
+};
+
+export const createEvent = async (event) => {
+  const response = await axios.post(
+    `${baseUrl}${resources.getEvents}`,
+    event,
+    getToken()
+  );
   return response.data;
 };

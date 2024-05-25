@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 // import StyledButton, { StyledButton2 } from "../../../components/StyledButton";
 // import DialogWithOwnState from "../../../components/ui/DialogWithOwnState";
 import Box from "@mui/material/Box";
-import AddTransactionScreen from "./AdminLoginScreen";
 import Button from "@mui/material/Button";
 import AdminLoginScreen from "./AdminLoginScreen";
 import DialogWithOwnState from "../DialogWithOwnState";
@@ -42,7 +41,7 @@ const AdminLoginButton = () => {
           variant="contained"
           onClick={handleLogout}
         >
-          Admin Sign out
+          Sign out
         </Button>
       )}
     </>

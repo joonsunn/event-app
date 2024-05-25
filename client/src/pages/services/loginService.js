@@ -16,3 +16,16 @@ export const login = async (username, password) => {
     return { error: true, message: "Login unsuccessful. Please try again." };
   }
 };
+
+export const getToken = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user || !user.token) return null;
+
+  return {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+      "Content-Type": "application/json",
+      accepts: "application/json",
+    },
+  };
+};

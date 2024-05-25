@@ -11,7 +11,7 @@ const Layout = () => {
         display: "flex",
         flexDirection: "column",
         margin: "auto",
-        padding: "0px 8px",
+        padding: "36px 8px",
         minHeight: "100vh",
         // paddingTop: "36px",
         alignItems: "center",

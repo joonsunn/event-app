@@ -22,6 +22,7 @@ import { login } from "../../pages/services/loginService";
 // }
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContextProvider";
+import { FormRow } from "../../pages/admin-portal/styles";
 
 const AdminLoginScreen = ({ handleClose }) => {
   const [error, setError] = useState({ error: false, message: "" });
@@ -64,43 +65,45 @@ const AdminLoginScreen = ({ handleClose }) => {
   };
 
   return (
-    <form onSubmit={(e) => handleSignin(e)}>
-      <Typography>Admin Sign In Popup</Typography>
-      <FormControl>
-        <TextField
-          label={"username"}
-          size="small"
-          sx={{ input: { padding: 1 } }}
-          name="username"
-          type="text"
-          // value={innerText}
-          // autoFocus
-          // onChange={(e) => handleSearchTextChange(e)}
-        />
-      </FormControl>
-
-      <FormControl>
-        <TextField
-          label={"password"}
-          size="small"
-          sx={{ input: { padding: 1 } }}
-          name="password"
-          type="password"
-          // value={innerText}
-          // autoFocus
-          // onChange={(e) => handleSearchTextChange(e)}
-        />
-      </FormControl>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-          marginTop: "16px",
-        }}
-      >
-        Admin sign in
+    <form
+      onSubmit={(e) => handleSignin(e)}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+        padding: "0px 24px",
+      }}
+    >
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <FormControl>
+          <FormRow>
+            <Typography className="form-label">Username: </Typography>
+            <TextField
+              // label={"username"}
+              // size="small"
+              // sx={{ input: { padding: 1 } }}
+              // placeholder="username"
+              name="username"
+              type="text"
+              variant="standard"
+              required
+            />
+          </FormRow>
+        </FormControl>
+        <FormControl>
+          <FormRow>
+            <Typography className="form-label">Password: </Typography>
+            <TextField
+              // defaultValue={defaultValues.name}
+              variant="standard"
+              name="password"
+              type="password"
+              required
+            />
+          </FormRow>
+        </FormControl>
       </Box>
+
       <Button
         variant="contained"
         type="submit"

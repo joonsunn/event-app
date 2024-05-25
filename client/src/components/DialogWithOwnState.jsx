@@ -28,7 +28,7 @@ const DialogWithOwnState = forwardRef(function DialogWithOwnState(props, ref) {
     <Dialog
       open={dialogOpen}
       onClose={() => setDialogOpen(false)}
-      fullWidth
+      fullWidth={props.fullWidth}
     >
       <DialogContent>{props.children}</DialogContent>
     </Dialog>
