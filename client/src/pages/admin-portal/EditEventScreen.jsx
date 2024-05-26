@@ -91,7 +91,6 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
             display: "flex",
             flexDirection: "column",
             gap: "8px",
-            // padding: "0px 24px",
           }}
           onSubmit={(e) => {
             handleUpdateEvent(e);
@@ -154,7 +153,6 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
               <Input
                 placeholder="Event time"
                 defaultValue={event.time}
-                //   variant="standard"
                 type="time"
                 name="time"
                 required
@@ -167,7 +165,6 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
               <Input
                 placeholder="End Date"
                 defaultValue={event.endDate}
-                //   variant="standard"
                 type="date"
                 name="endDate"
                 required
@@ -228,7 +225,6 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
             </FormRow>
           </FormControl>
           <FormControl>
-            {/* <FormRow> */}
             <Typography className="form-label">Description</Typography>
             <TextField
               placeholder="Event Description"
@@ -239,7 +235,6 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
               minRows={3}
               required
             />
-            {/* </FormRow> */}
           </FormControl>
           <DialogActions>
             <Button

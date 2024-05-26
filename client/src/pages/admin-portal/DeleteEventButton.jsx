@@ -10,7 +10,6 @@ const DeleteEventButton = ({ id, deleteEvent }) => {
     if (confirmDelete) {
       try {
         const response = await deleteEvent(id);
-        // console.log(response);
       } catch (error) {
         console.error(error);
       }

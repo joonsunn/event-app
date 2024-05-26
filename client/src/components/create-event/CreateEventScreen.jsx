@@ -65,7 +65,6 @@ const CreateEventScreen = ({ handleClose }) => {
 
   const handleCreateEvent = async (e) => {
     e.preventDefault();
-    // console.log(e.target);
     const name = e.target.name.value;
     const description = e.target.description.value;
     const organiser = e.target.organiser.value;
@@ -116,10 +115,8 @@ const CreateEventScreen = ({ handleClose }) => {
             display: "flex",
             flexDirection: "column",
             gap: "8px",
-            // padding: "0px 24px",
           }}
           onSubmit={(e) => {
-            //   e.preventDefault();
             handleCreateEvent(e);
           }}
         >
@@ -170,9 +167,6 @@ const CreateEventScreen = ({ handleClose }) => {
                 type="date"
                 name="date"
                 required
-                // inputProps={{
-                //   min: getTodayDate(),
-                // }}
               />
             </FormRow>
           </FormControl>
@@ -194,7 +188,6 @@ const CreateEventScreen = ({ handleClose }) => {
               <Input
                 placeholder="End Date"
                 defaultValue={defaultValues.endDate}
-                //   variant="standard"
                 type="date"
                 name="endDate"
                 required
@@ -208,7 +201,6 @@ const CreateEventScreen = ({ handleClose }) => {
               <Input
                 placeholder="End time"
                 defaultValue={defaultValues.endTime}
-                //   variant="standard"
                 type="time"
                 name="endTime"
                 required

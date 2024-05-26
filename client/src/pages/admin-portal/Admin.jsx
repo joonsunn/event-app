@@ -20,7 +20,6 @@ const Admin = () => {
       <Box
         sx={{
           display: "flex",
-          // justifyContent: isMobile ? "flex-start" : "flex-end",
           justifyContent: "flex-start",
         }}
       >

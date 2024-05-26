@@ -2,7 +2,6 @@ import { Box, Chip, Typography, useTheme } from "@mui/material";
 import React, { useRef } from "react";
 import DialogWithOwnState from "../DialogWithOwnState";
 import EventDialog from "./EventDialog";
-import { getDayOfWeek } from "../../utils/timeUtils";
 
 const EventCard = ({ event }) => {
   const theme = useTheme();
@@ -15,11 +14,9 @@ const EventCard = ({ event }) => {
       <Box
         component={"div"}
         sx={{
-          // height: "150px",
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.secondary,
           padding: "16px",
-          //   margin: "auto",
           borderRadius: "8px",
           cursor: "pointer",
           "&:hover": {
@@ -29,14 +26,6 @@ const EventCard = ({ event }) => {
         }}
         onClick={handleClick}
       >
-        {/* <Typography>
-          {event.name} by {event.organiser}
-        </Typography>
-        <Typography>
-          {`${new Date(event.eventDate).toDateString()} ${event.time} hrs`}
-        </Typography>
-
-        <Typography>Location: {event.location}</Typography> */}
         <Box sx={{ marginBottom: "8px" }}>
           <Typography
             fontWeight={"bold"}
@@ -51,7 +40,6 @@ const EventCard = ({ event }) => {
             event.time
           } hrs`}</Typography>
           <Typography fontSize={"14px"}>{`${event.location}`}</Typography>
-          {/* <Typography>{event.organiser}</Typography> */}
         </Box>
         <Chip label={event.completed ? "Completed" : "Ongoing"} />
       </Box>

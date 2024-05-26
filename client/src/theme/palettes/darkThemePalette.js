@@ -18,12 +18,6 @@ const DARK = {
 
 const darkThemePalette = {
   mode: "dark",
-  // primary: {
-  //   main: PRIMARY[300],
-  //   light: PRIMARY[500],
-  //   dark: PRIMARY[100],
-  //   contrastText: DARK[100],
-  // },
   primary: {
     main: "#485696",
     light: "#e7e7e7",

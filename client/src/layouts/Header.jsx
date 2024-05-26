@@ -25,7 +25,6 @@ const Header = () => {
         sx={{
           display: "flex",
           width: isMobile ? "100%" : "80%",
-          // justifyContent: "space-evenly",
           justifyContent: "space-between",
           alignItems: "center",
         }}

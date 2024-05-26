@@ -13,7 +13,6 @@ const CreateEventButton = () => {
     <>
       <Button
         onClick={handleClick}
-        // primary={+false as unknown as boolean}
         variant="contained"
         sx={{ width: "max-content" }}
       >

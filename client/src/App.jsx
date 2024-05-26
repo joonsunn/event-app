@@ -5,8 +5,6 @@ import MyThemeProvider from "./theme/theme";
 import { UserContextProvider } from "./context/UserContextProvider";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <MyThemeProvider>
       <UserContextProvider>

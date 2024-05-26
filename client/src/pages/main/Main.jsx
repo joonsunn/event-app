@@ -29,7 +29,6 @@ const Main = () => {
           flexWrap: "wrap",
         }}
       >
-        {/* <Typography>Filter events by: </Typography> */}
         <ToggleButtonGroup>
           <Button
             variant={statusFilter === "all" ? "contained" : "outlined"}
@@ -53,9 +52,6 @@ const Main = () => {
       </Box>
       <Box
         sx={{
-          // display: "flex",
-          // flexDirection: "row",
-          // flexWrap: "wrap",
           gap: "8px",
           marginTop: "36px",
           display: "grid",

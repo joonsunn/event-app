@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { FormRow } from "./styles";
-// import { deleteEvent } from "../services/eventService";
 
 const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
   const [editMode, setEditMode] = useState(false);
@@ -33,7 +32,6 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
 
     const newTimeoutId = setTimeout(() => {
       setError({ error: false, message: "" });
-      // console.log(value);
     }, 5000);
     setTimeoutId(newTimeoutId);
   };
@@ -47,12 +45,10 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
     if (confirmDelete) {
       try {
         const response = await deleteEvent(event.id);
-        // console.log(response);
       } catch (error) {
         console.error(error);
       }
     }
-    // console.log("deleting event:", event.id);
   };
 
   const handleUpdateEvent = async (e) => {
@@ -96,18 +92,15 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
           priority,
         },
       });
-      //   console.log(response);
       setEditMode(false);
     } catch (error) {
       console.error(error);
     }
   };
 
-  //TODO: use dialog to edit event
   return (
     <>
       {
-        // </form>
         <tr key={event.id}>
           <td>{event.name}</td>
           {!isMobile && <td>{event.description}</td>}
@@ -171,7 +164,6 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
               padding: "0px 24px",
             }}
             onSubmit={(e) => {
-              //   e.preventDefault();
               handleUpdateEvent(e);
             }}
           >
@@ -232,7 +224,6 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
                 <Input
                   placeholder="Event Date"
                   defaultValue={event.eventDate}
-                  //   variant="standard"
                   type="date"
                   name="date"
                   required
@@ -243,16 +234,9 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
             <FormControl>
               <FormRow>
                 <Typography className="form-label">Time</Typography>
-                {/* <TextField
-                  placeholder="Event Time"
-                  defaultValue={rowState.time}
-                  variant="standard"
-                  name="time"
-                /> */}
                 <Input
                   placeholder="Event time"
                   defaultValue={event.time}
-                  //   variant="standard"
                   type="time"
                   name="time"
                   required
@@ -265,7 +249,6 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
                 <Input
                   placeholder="End Date"
                   defaultValue={event.endDate}
-                  //   variant="standard"
                   type="date"
                   name="endDate"
                   required
@@ -275,16 +258,9 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
             <FormControl>
               <FormRow>
                 <Typography className="form-label">End Time</Typography>
-                {/* <TextField
-                  placeholder="Event Time"
-                  defaultValue={rowState.time}
-                  variant="standard"
-                  name="time"
-                /> */}
                 <Input
                   placeholder="End time"
                   defaultValue={event.endTime}
-                  //   variant="standard"
                   type="time"
                   name="endTime"
                   required
@@ -294,12 +270,6 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
             <FormControl>
               <FormRow>
                 <Typography className="form-label">Event Status</Typography>
-                {/* <TextField
-                  placeholder="Event Status"
-                  defaultValue={rowState.completed}
-                  variant="standard"
-                  name="status"
-                /> */}
                 <Select
                   value={eventComplete}
                   sx={{

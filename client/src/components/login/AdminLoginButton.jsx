@@ -14,7 +14,6 @@ const AdminLoginButton = () => {
   const handleLogout = () => {
     setUser({});
     localStorage.clear();
-    // window.location.href = "/";
     navigate("/");
   };
 

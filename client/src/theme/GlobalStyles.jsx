@@ -24,24 +24,17 @@ function GlobalStyles() {
           padding: 0,
           width: "100%",
           height: "100%",
-          // minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
         },
-        "h1, h2, h3, h4, h5, h6": {
-          //   fontFamily: "Nunito, sans-serif",
-        },
+        "h1, h2, h3, h4, h5, h6": {},
         "html,body": {
           maxWidth: "2560px",
           margin: "0 auto",
-
-          // minWidth: '1200px',
         },
         "#root": {
           width: "100%",
           height: "100%",
-          // border: "1px solid red",
-          // minHeight: "100vh",
           scrollBehavior: "smooth",
         },
         "[role=button]": {

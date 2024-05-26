@@ -22,7 +22,6 @@ const AdminLoginScreen = ({ handleClose }) => {
 
     const newTimeoutId = setTimeout(() => {
       setError({ error: false, message: "" });
-      // console.log(value);
     }, 5000);
     setTimeoutId(newTimeoutId);
   };

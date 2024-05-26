@@ -29,7 +29,6 @@ export default function MyThemeProvider({ children }) {
     palette: themeOptions[myTheme],
   };
 
-  // const theme = createTheme(themePalette);
   const theme = createTheme(themePalette);
   theme.components = ComponentsOverrides(theme);
 
