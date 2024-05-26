@@ -13,16 +13,14 @@ export const getEvents = async (status) => {
   if (!status) {
     status = "all";
   }
-  const response = await axios.get(
-    `${baseUrl}${resources.getEventsByStatus}/${status}`
-  );
+  const response = await axios.get(`${resources.getEventsByStatus}/${status}`);
 
   return response.data;
 };
 
 export const updateEvent = async (id, event) => {
   const response = await axios.patch(
-    `${baseUrl}${resources.updateEvent}/${id}`,
+    `${resources.updateEvent}/${id}`,
     event,
     getToken()
   );
@@ -31,7 +29,7 @@ export const updateEvent = async (id, event) => {
 
 export const deleteEvent = async (id) => {
   const response = await axios.delete(
-    `${baseUrl}${resources.getEvents}/${id}`,
+    `${resources.getEvents}/${id}`,
     getToken()
   );
   return response.data;
@@ -39,7 +37,7 @@ export const deleteEvent = async (id) => {
 
 export const createEvent = async (event) => {
   const response = await axios.post(
-    `${baseUrl}${resources.getEvents}`,
+    `${resources.getEvents}`,
     event,
     getToken()
   );

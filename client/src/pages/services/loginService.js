@@ -7,7 +7,7 @@ const resources = {
 
 export const login = async (username, password) => {
   try {
-    const response = await axios.post(`${baseUrl}${resources.login}`, {
+    const response = await axios.post(`${resources.login}`, {
       username,
       password,
     });
