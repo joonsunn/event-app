@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 const Layout = () => {
   return (
@@ -17,7 +17,11 @@ const Layout = () => {
       }}
     >
       <Header />
-      <Container sx={{ marginTop: "80px" }}>
+      <Container
+        sx={{
+          marginTop: "80px",
+        }}
+      >
         <Outlet />
       </Container>
       <Footer />

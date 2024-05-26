@@ -14,3 +14,18 @@ export const getDeltaDate = (date, daysDelta) => {
   const yyyy = newDate.getFullYear();
   return `${yyyy}-${mm}-${dd}`;
 };
+
+export const getDayOfWeek = (date) => {
+  const newDate = new Date(date);
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayOfWeek = daysOfWeek[newDate.getDay()];
+  return dayOfWeek;
+};

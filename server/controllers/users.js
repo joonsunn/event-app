@@ -39,7 +39,6 @@ usersRouter.get(
 
 usersRouter.post("/", async (request, response) => {
   const { username, password, adminCode } = request.body;
-  //   console.log(request.body);
 
   if (password.length < 3) {
     return response.status(401).json({

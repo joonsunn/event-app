@@ -15,7 +15,6 @@ eventsRouter.get("/organiser/:organiser", async (request, response) => {
   return response.json(events);
 });
 
-// TODO: to convert to query params
 eventsRouter.get("/status/:status", async (request, response) => {
   // const user = request.user;
   // console.log(request.query);
@@ -58,7 +57,6 @@ eventsRouter.post(
     middleware.adminGatekeeper,
   ],
   async (request, response) => {
-    //   console.log(request.user);
     const {
       name,
       eventDate,
@@ -87,7 +85,6 @@ eventsRouter.post(
 
     const savedEvent = await event.save();
     return response.status(201).json(savedEvent);
-    //   response.status(200).json(request.body);
   }
 );
 

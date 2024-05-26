@@ -6,17 +6,27 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { getDayOfWeek } from "../../utils/timeUtils";
 
 const EventDialog = ({ event, handleClose }) => {
   return (
     <>
-      <DialogTitle>{event.name}</DialogTitle>
+      <DialogTitle>
+        {event.name} {event.completed ? "- Completed" : " - Ongoing"}
+      </DialogTitle>
       <DialogContent>
-        <Typography>Oraganised by {event.organiser}</Typography>
+        <Typography>Organised by {event.organiser}</Typography>
         <Typography>
-          {event.eventDate} {event.time}
+          {`Event Start Date/Time: ${event.eventDate} ${
+            event.time
+          } hrs, ${getDayOfWeek(event.eventDate)}`}
         </Typography>
-        <Typography>{event.location}</Typography>
+        <Typography>
+          {`Event End Date/Time: ${event.endDate} ${
+            event.endTime
+          } hrs, ${getDayOfWeek(event.endDate)}`}
+        </Typography>
+        <Typography>Venue: {event.location}</Typography>
         <Typography>{event.completed}</Typography>
         <Typography>{event.description}</Typography>
       </DialogContent>

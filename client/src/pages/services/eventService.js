@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { baseUrl } from "../../utils/config";
 import { getToken } from "./loginService";
 
 const resources = {
@@ -9,7 +8,6 @@ const resources = {
 };
 
 export const getEvents = async (status) => {
-  // const response = await axios.get(`${baseUrl}${resources.getEvents}`);
   if (!status) {
     status = "all";
   }

@@ -1,7 +1,8 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Chip, Typography, useTheme } from "@mui/material";
 import React, { useRef } from "react";
 import DialogWithOwnState from "../DialogWithOwnState";
 import EventDialog from "./EventDialog";
+import { getDayOfWeek } from "../../utils/timeUtils";
 
 const EventCard = ({ event }) => {
   const theme = useTheme();
@@ -32,9 +33,11 @@ const EventCard = ({ event }) => {
           {event.name} by {event.organiser}
         </Typography>
         <Typography>
-          Date/Time: {event.eventDate} {event.time}
+          {`${new Date(event.eventDate).toDateString()} ${event.time} hrs`}
         </Typography>
+
         <Typography>Location: {event.location}</Typography>
+        <Chip label={event.completed ? "Completed" : "Ongoing"} />
       </Box>
       <DialogWithOwnState
         ref={dialogRef}

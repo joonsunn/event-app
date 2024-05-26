@@ -44,7 +44,7 @@ const eventSchema = new mongoose.Schema({
   priority: {
     type: String,
     required: true,
-    default: "low",
+    default: "Low",
   },
   createdDate: {
     type: Date,
