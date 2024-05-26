@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getEvents } from "../services/eventService";
 import AdminTable from "./AdminTable";
 import Button from "@mui/material/Button";
-import {
-  Box,
-  Container,
-  ToggleButtonGroup,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, ToggleButtonGroup, useMediaQuery } from "@mui/material";
 import CreateEventButton from "../../components/create-event/CreateEventButon";
 
 const Admin = () => {
@@ -34,7 +26,6 @@ const Admin = () => {
           marginBottom: "36px",
         }}
       >
-        {/* <Typography>Filter: </Typography> */}
         <ToggleButtonGroup>
           <Button
             variant={statusFilter === "all" ? "contained" : "outlined"}

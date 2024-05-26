@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { getDayOfWeek } from "../../utils/timeUtils";
+import { getDayOfWeek, timeFormatter } from "../../utils/timeUtils";
 
 const EventDialog = ({ event, handleClose }) => {
   return (
@@ -29,20 +29,6 @@ const EventDialog = ({ event, handleClose }) => {
         </Box>
       </DialogTitle>
       <DialogContent>
-        {/* <Typography fontStyle="italic">{event.organiser}</Typography> */}
-        {/* <Typography>
-          {`Event Start Date/Time: ${event.eventDate} ${
-            event.time
-          } hrs, ${getDayOfWeek(event.eventDate)}`}
-        </Typography>
-        <Typography>
-          {`Event End Date/Time: ${event.endDate} ${
-            event.endTime
-          } hrs, ${getDayOfWeek(event.endDate)}`}
-        </Typography>
-        <Typography>Venue: {event.location}</Typography>
-        <Typography>{event.completed}</Typography> */}
-
         <Box
           sx={{
             display: "grid",
@@ -55,15 +41,15 @@ const EventDialog = ({ event, handleClose }) => {
 
           <Typography>{`Start`}</Typography>
           <Typography>
-            {`${event.eventDate} ${event.time} hrs, ${getDayOfWeek(
-              event.eventDate
-            )}`}
+            {`${event.eventDate} ${timeFormatter(
+              new Date(`${event.eventDate} ${event.time}`)
+            )}, ${getDayOfWeek(event.eventDate)}`}
           </Typography>
           <Typography>{`End`}</Typography>
           <Typography>
-            {`${event.endDate} ${event.endTime} hrs, ${getDayOfWeek(
-              event.endDate
-            )}`}
+            {`${event.endDate} ${timeFormatter(
+              new Date(`${event.eventDate} ${event.time}`)
+            )}, ${getDayOfWeek(event.endDate)}`}
           </Typography>
           <Typography>Venue</Typography>
           <Typography>{event.location}</Typography>

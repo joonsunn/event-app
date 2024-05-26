@@ -29,3 +29,12 @@ export const getDayOfWeek = (date) => {
   const dayOfWeek = daysOfWeek[newDate.getDay()];
   return dayOfWeek;
 };
+
+export const timeFormatter = (date) => {
+  const dateObj = new Date(date);
+  let hours = dateObj.getHours();
+  const minutes = String(dateObj.getMinutes()).padStart(2, "0");
+  const suffix = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12;
+  return `${hours}:${minutes} ${suffix}`;
+};

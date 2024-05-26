@@ -2,6 +2,7 @@ import { Box, Chip, Typography, useTheme } from "@mui/material";
 import React, { useRef } from "react";
 import DialogWithOwnState from "../DialogWithOwnState";
 import EventDialog from "./EventDialog";
+import { timeFormatter } from "../../utils/timeUtils";
 
 const EventCard = ({ event }) => {
   const theme = useTheme();
@@ -36,9 +37,9 @@ const EventCard = ({ event }) => {
           <Typography
             fontWeight={"bold"}
             fontSize={"14px"}
-          >{`${new Date(event.eventDate).toDateString()} ${
-            event.time
-          } hrs`}</Typography>
+          >{`${new Date(event.eventDate).toDateString()} ${timeFormatter(
+            new Date(`${event.eventDate} ${event.time}`)
+          )}`}</Typography>
           <Typography fontSize={"14px"}>{`${event.location}`}</Typography>
         </Box>
         <Chip label={event.completed ? "Completed" : "Ongoing"} />
