@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import Router from "./routes";
 import MyThemeProvider from "./theme/theme";
 import { UserContextProvider } from "./context/UserContextProvider";
@@ -10,9 +10,9 @@ function App() {
   return (
     <MyThemeProvider>
       <UserContextProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Router />
-        </BrowserRouter>
+        </HashRouter>
       </UserContextProvider>
     </MyThemeProvider>
   );
