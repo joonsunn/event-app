@@ -6,12 +6,12 @@ import { Box, Container } from "@mui/material";
 
 const Layout = () => {
   return (
-    <Container
+    <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         margin: "auto",
-        padding: "36px 8px 0px 8px",
+        padding: "36px 0px 0px 0px",
         minHeight: "100vh",
         alignItems: "center",
       }}
@@ -19,13 +19,13 @@ const Layout = () => {
       <Header />
       <Container
         sx={{
-          marginTop: "80px",
+          marginTop: "120px",
         }}
       >
         <Outlet />
       </Container>
       <Footer />
-    </Container>
+    </Box>
   );
 };
 

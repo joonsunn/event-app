@@ -28,7 +28,7 @@ const AdminLoginButton = () => {
           <Button
             onClick={handleClick}
             variant="contained"
-            sx={{ padding: "0px 4px" }}
+            sx={{ padding: "4px 4px" }}
           >
             Admin
           </Button>
@@ -40,7 +40,7 @@ const AdminLoginButton = () => {
         <Button
           variant="contained"
           onClick={handleLogout}
-          sx={{ padding: "0px 4px" }}
+          sx={{ padding: "4px 4px" }}
         >
           Sign out
         </Button>

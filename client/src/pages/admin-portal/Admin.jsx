@@ -3,26 +3,39 @@ import { useQuery } from "@tanstack/react-query";
 import { getEvents } from "../services/eventService";
 import AdminTable from "./AdminTable";
 import Button from "@mui/material/Button";
-import { Box, Container, ToggleButtonGroup, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  ToggleButtonGroup,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import CreateEventButton from "../../components/create-event/CreateEventButon";
 
 const Admin = () => {
   const [statusFilter, setStatusFilter] = useState("all");
+  const isMobile = useMediaQuery("(max-width: 600px)");
   return (
-    <Container sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          // justifyContent: isMobile ? "flex-start" : "flex-end",
+          justifyContent: "flex-start",
+        }}
+      >
         <CreateEventButton />
       </Box>
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           gap: "24px",
           marginBottom: "36px",
         }}
       >
-        <Typography>Filter events by: </Typography>
+        {/* <Typography>Filter: </Typography> */}
         <ToggleButtonGroup>
           <Button
             variant={statusFilter === "all" ? "contained" : "outlined"}
@@ -45,7 +58,7 @@ const Admin = () => {
         </ToggleButtonGroup>
       </Box>
       <AdminTable statusFilter={statusFilter} />
-    </Container>
+    </Box>
   );
 };
 
