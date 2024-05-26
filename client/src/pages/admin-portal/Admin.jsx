@@ -10,7 +10,6 @@ const Admin = () => {
   const [statusFilter, setStatusFilter] = useState("all");
   return (
     <Container sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      {/* <Typography variant="h4">Admin Portal</Typography> */}
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <CreateEventButton />
       </Box>

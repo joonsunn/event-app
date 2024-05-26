@@ -2,10 +2,11 @@
 
 import React, { useRef } from "react";
 import Button from "@mui/material/Button";
-import DialogWithOwnState from "../DialogWithOwnState";
-import CreateEventScreen from "./CreateEventScreen";
+import DialogWithOwnState from "../../components/DialogWithOwnState";
+import EditEventScreen from "./EditEventScreen";
+import EditIcon from "@mui/icons-material/Edit";
 
-const CreateEventButton = () => {
+const EditEventButton = ({ event, updateEvent }) => {
   const dialogRef = useRef();
   const handleClick = () => dialogRef.current.setOpen();
   const handleClose = () => dialogRef.current.setClose();
@@ -13,17 +14,19 @@ const CreateEventButton = () => {
     <>
       <Button
         onClick={handleClick}
-        // primary={+false as unknown as boolean}
-        variant="contained"
         sx={{ width: "max-content" }}
       >
-        Create Event
+        <EditIcon color="action" />
       </Button>
       <DialogWithOwnState ref={dialogRef}>
-        <CreateEventScreen handleClose={handleClose} />
+        <EditEventScreen
+          handleClose={handleClose}
+          event={event}
+          updateEvent={updateEvent}
+        />
       </DialogWithOwnState>
     </>
   );
 };
 
-export default CreateEventButton;
+export default EditEventButton;

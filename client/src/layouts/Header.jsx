@@ -16,11 +16,9 @@ const Header = () => {
         width: "100%",
         padding: "16px 56px",
         alignItems: "center",
-        // justifyContent: "space-between",
         justifyContent: "flex-end",
       }}
     >
-      {/* <div>header</div> */}
       <Box
         sx={{
           display: "flex",
@@ -31,7 +29,6 @@ const Header = () => {
         <Typography variant="h4">
           Events App {path === "/admin" ? " - Admin Portal" : ""}
         </Typography>
-        {/* <Button variant="contained">Admin Log In</Button> */}
         <AdminLoginButton />
       </Box>
     </Box>

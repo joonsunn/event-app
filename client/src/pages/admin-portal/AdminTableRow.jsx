@@ -16,39 +16,11 @@ import {
 import React, { useState } from "react";
 import { FormRow } from "./styles";
 // import { deleteEvent } from "../services/eventService";
-import { getTodayDate } from "../../utils/timeUtils";
 
-/**
- * Renders a table row for an admin portal event.
- *
- * @param {Object} props - The props object containing the event data.
- * @param {Object} props.event - The event object with the following properties:
- *   - {string} id - The unique identifier of the event.
- *   - {string} name - The name of the event.
- *   - {string} description - The description of the event.
- *   - {string} organiser - The organiser of the event.
- *   - {string} eventDate - The date of the event (in ISO format).
- *   - {string} time - The time of the event.
- *   - {boolean} completed - Indicates whether the event is completed or not.
- * @return {JSX.Element} The rendered table row.
- */
 const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
   const [editMode, setEditMode] = useState(false);
   const [eventComplete, setEventComplete] = useState(event.completed);
   const [priority, setPriority] = useState("Low");
-
-  //   const [rowState, setRowState] = useState({
-  //     name: event.name,
-  //     description: event.description,
-  //     organiser: event.organiser,
-  //     eventDate: event.eventDate,
-  //     endDate: event.endDate,
-  //     time: event.time,
-  //     endTime: event.endTime,
-  //     location: event.location,
-  //     completed: event.completed,
-  //     priority: event.priority,
-  //   });
 
   const [error, setError] = useState({ error: false, message: "" });
   const [timeoutId, setTimeoutId] = useState(null);

@@ -7,13 +7,11 @@ const UnprotectedRoute = () => {
 
   useEffect(() => {
     if (user?.token) {
-      // window.location.href = "/admin";
       navigate("/admin");
     }
   }, [navigate, user?.token]);
   return (
     <>
-      {/* <div>UnprotectedRoute</div> */}
       <Outlet />
     </>
   );

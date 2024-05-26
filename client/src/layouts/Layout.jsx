@@ -13,13 +13,10 @@ const Layout = () => {
         margin: "auto",
         padding: "36px 8px 0px 8px",
         minHeight: "100vh",
-        // paddingTop: "36px",
         alignItems: "center",
       }}
     >
       <Header />
-      {/* <div style={{ height: "100%" }}>
-      </div> */}
       <Container sx={{ marginTop: "80px" }}>
         <Outlet />
       </Container>

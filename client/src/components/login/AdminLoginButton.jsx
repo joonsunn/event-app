@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-// import StyledButton, { StyledButton2 } from "../../../components/StyledButton";
-// import DialogWithOwnState from "../../../components/ui/DialogWithOwnState";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import AdminLoginScreen from "./AdminLoginScreen";
 import DialogWithOwnState from "../DialogWithOwnState";
@@ -13,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminLoginButton = () => {
   const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate(0);
+  const navigate = useNavigate();
   const handleLogout = () => {
     setUser({});
     localStorage.clear();
@@ -30,7 +27,6 @@ const AdminLoginButton = () => {
         <>
           <Button
             onClick={handleClick}
-            // primary={+false as unknown as boolean}
             variant="contained"
             sx={{ padding: "0px 4px" }}
           >

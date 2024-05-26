@@ -1,4 +1,4 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import React, { useRef } from "react";
 import DialogWithOwnState from "../DialogWithOwnState";
 import EventDialog from "./EventDialog";

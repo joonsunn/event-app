@@ -1,18 +1,12 @@
 "use client";
 
-import { Box, DialogContent } from "@mui/material";
+import { DialogContent } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  //   useRef,
-  useState,
-} from "react";
+import React, { forwardRef, useImperativeHandle, useState } from "react";
 
 const DialogWithOwnState = forwardRef(function DialogWithOwnState(props, ref) {
   const [dialogOpen, setDialogOpen] = useState(false);
-  //   const dialogRef = useRef();
   useImperativeHandle(ref, () => ({
     getOpen: () => {
       dialogOpen;
