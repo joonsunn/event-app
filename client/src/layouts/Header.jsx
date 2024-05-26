@@ -2,6 +2,7 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import AdminLoginButton from "../components/login/AdminLoginButton";
 import { useLocation } from "react-router-dom";
+import { ThemeSwitcher } from "../components/theme-switcher/ThemeSwitcher";
 
 const Header = () => {
   const path = useLocation().pathname;
@@ -23,9 +24,12 @@ const Header = () => {
         sx={{
           display: "flex",
           width: isMobile ? "100%" : "80%",
+          // justifyContent: "space-evenly",
           justifyContent: "space-between",
         }}
       >
+        <ThemeSwitcher />
+
         <Typography variant="h4">
           Events App {path === "/admin" ? " - Admin Portal" : ""}
         </Typography>

@@ -18,7 +18,7 @@ const EventCard = ({ event }) => {
           // height: "150px",
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.secondary,
-          padding: "8px",
+          padding: "16px",
           //   margin: "auto",
           borderRadius: "8px",
           cursor: "pointer",
@@ -29,14 +29,30 @@ const EventCard = ({ event }) => {
         }}
         onClick={handleClick}
       >
-        <Typography>
+        {/* <Typography>
           {event.name} by {event.organiser}
         </Typography>
         <Typography>
           {`${new Date(event.eventDate).toDateString()} ${event.time} hrs`}
         </Typography>
 
-        <Typography>Location: {event.location}</Typography>
+        <Typography>Location: {event.location}</Typography> */}
+        <Box sx={{ marginBottom: "8px" }}>
+          <Typography
+            fontWeight={"bold"}
+            fontSize={"18px"}
+          >
+            {event.name}
+          </Typography>
+          <Typography
+            fontWeight={"bold"}
+            fontSize={"14px"}
+          >{`${new Date(event.eventDate).toDateString()} ${
+            event.time
+          } hrs`}</Typography>
+          <Typography fontSize={"14px"}>{`${event.location}`}</Typography>
+          {/* <Typography>{event.organiser}</Typography> */}
+        </Box>
         <Chip label={event.completed ? "Completed" : "Ongoing"} />
       </Box>
       <DialogWithOwnState
