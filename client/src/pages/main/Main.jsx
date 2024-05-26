@@ -62,17 +62,18 @@ const Main = () => {
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
         }}
       >
-        {events?.map((event) => (
-          // <Box key={event.id}>
-          //   <Typography>Event name: {event.name}</Typography>
-          //   <Typography>Organised by : {event.organiser}</Typography>
-          //   <Typography>Description: {event.description}</Typography>
-          // </Box>
-          <EventCard
-            key={event.id}
-            event={event}
-          />
-        ))}
+        {events &&
+          events?.map((event) => (
+            // <Box key={event.id}>
+            //   <Typography>Event name: {event.name}</Typography>
+            //   <Typography>Organised by : {event.organiser}</Typography>
+            //   <Typography>Description: {event.description}</Typography>
+            // </Box>
+            <EventCard
+              key={event.id}
+              event={event}
+            />
+          ))}
       </Box>
     </>
   );
