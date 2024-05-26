@@ -3,11 +3,8 @@
 import React, { useRef } from "react";
 // import StyledButton, { StyledButton2 } from "../../../components/StyledButton";
 // import DialogWithOwnState from "../../../components/ui/DialogWithOwnState";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import DialogWithOwnState from "../DialogWithOwnState";
-import { UserContext } from "../../context/UserContextProvider";
-import { useContext } from "react";
 import CreateEventScreen from "./CreateEventScreen";
 
 const CreateEventButton = () => {

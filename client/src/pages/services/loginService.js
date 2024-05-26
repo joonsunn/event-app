@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl } from "../../utils/config";
+// import { baseUrl } from "../../utils/config";
 
 const resources = {
   login: "/api/login",

@@ -50,7 +50,7 @@ const CreateEventScreen = ({ handleClose }) => {
       await createEvent(event);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["events"]);
+      queryClient.invalidateQueries({ queryKey: ["events"] });
       handleClose();
     },
     onError: (error) => {

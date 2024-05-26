@@ -20,7 +20,7 @@ const AdminTable = ({ statusFilter }) => {
   const { mutate: handleDeleteEvent } = useMutation({
     mutationFn: (id) => deleteEvent(id),
     onSettled: () => {
-      queryClient.invalidateQueries(["events"]);
+      queryClient.invalidateQueries({ queryKey: ["events"] });
     },
   });
 
@@ -29,7 +29,7 @@ const AdminTable = ({ statusFilter }) => {
       await updateEvent(id, event);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["events"]);
+      queryClient.invalidateQueries({ queryKey: ["events"] });
     },
   });
 
@@ -41,12 +41,9 @@ const AdminTable = ({ statusFilter }) => {
             <th>Event Name</th>
             {!isMobile && <th>Description</th>}
             <th>Organiser</th>
-
             {!isMobile && <th>Location</th>}
-
             <th>Date</th>
             {!isMobile && <th>Time</th>}
-
             <th>Status</th>
             <th>Actions</th>
           </tr>

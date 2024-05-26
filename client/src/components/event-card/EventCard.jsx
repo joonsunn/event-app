@@ -14,8 +14,7 @@ const EventCard = ({ event }) => {
       <Box
         component={"div"}
         sx={{
-          //   maxWidth: "48%",
-          height: "150px",
+          // height: "150px",
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.secondary,
           padding: "8px",
@@ -25,6 +24,7 @@ const EventCard = ({ event }) => {
           "&:hover": {
             boxShadow: "0 0 8px 0 rgba(187, 178, 178, 0.562)",
           },
+          overflow: "hidden",
         }}
         onClick={handleClick}
       >

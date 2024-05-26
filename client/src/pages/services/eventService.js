@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl } from "../../utils/config";
+// import { baseUrl } from "../../utils/config";
 import { getToken } from "./loginService";
 
 const resources = {
@@ -19,27 +19,22 @@ export const getEvents = async (status) => {
 };
 
 export const updateEvent = async (id, event) => {
-  const response = await axios.patch(
-    `${resources.updateEvent}/${id}`,
-    event,
-    getToken()
-  );
+  const response = await axios.patch(`${resources.updateEvent}/${id}`, event, {
+    ...getToken(),
+  });
   return response.data;
 };
 
 export const deleteEvent = async (id) => {
-  const response = await axios.delete(
-    `${resources.getEvents}/${id}`,
-    getToken()
-  );
+  const response = await axios.delete(`${resources.getEvents}/${id}`, {
+    ...getToken(),
+  });
   return response.data;
 };
 
 export const createEvent = async (event) => {
-  const response = await axios.post(
-    `${resources.getEvents}`,
-    event,
-    getToken()
-  );
+  const response = await axios.post(`${resources.getEvents}`, event, {
+    ...getToken(),
+  });
   return response.data;
 };

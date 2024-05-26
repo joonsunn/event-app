@@ -3,7 +3,7 @@ import { getEvents } from "../services/eventService";
 import { useQuery } from "@tanstack/react-query";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { ToggleButtonGroup, Button } from "@mui/material";
+import { ToggleButtonGroup, Button, useMediaQuery } from "@mui/material";
 import EventCard from "../../components/event-card/EventCard";
 
 const Main = () => {
@@ -13,12 +13,12 @@ const Main = () => {
     queryFn: () => getEvents(statusFilter),
   });
 
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isTablet = useMediaQuery("(max-width: 900px)");
+  const isDesktop = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
-      {/* <div>Main</div>
-      <div>Main</div>
-      <div>Main</div> */}
-      {/* <div style={{ height: "1000px", outline: "1px solid red" }}>Main</div> */}
       <Box
         sx={{
           display: "flex",
@@ -59,16 +59,18 @@ const Main = () => {
           gap: "8px",
           marginTop: "36px",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+
+          gridTemplateColumns: isMobile
+            ? "repeat(1, 1fr)"
+            : isTablet
+            ? "repeat(2, 1fr)"
+            : isDesktop
+            ? "repeat(3, 1fr)"
+            : "repeat(3, 1fr)",
         }}
       >
         {events &&
           events?.map((event) => (
-            // <Box key={event.id}>
-            //   <Typography>Event name: {event.name}</Typography>
-            //   <Typography>Organised by : {event.organiser}</Typography>
-            //   <Typography>Description: {event.description}</Typography>
-            // </Box>
             <EventCard
               key={event.id}
               event={event}

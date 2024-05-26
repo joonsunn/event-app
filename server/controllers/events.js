@@ -28,14 +28,17 @@ eventsRouter.get("/status/:status", async (request, response) => {
 
   const statusToSearch = request.params.status;
 
+  const sortFn = (a, b) =>
+    new Date(a.eventDate).valueOf() - new Date(b.eventDate).valueOf();
+
   if (statusToSearch === "all") {
-    return response.json(await Event.find({}));
+    return response.json((await Event.find({})).sort((a, b) => sortFn(a, b)));
   }
 
   const events = await Event.find({
     completed: searchCondition[request.params.status],
   });
-  return response.json(events);
+  return response.json(events.sort((a, b) => sortFn(a, b)));
 });
 
 // eventsRouter.get("/:id", async (request, response) => {
