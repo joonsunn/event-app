@@ -1,18 +1,20 @@
 # Event App
 
-Event App readme
+An instance of this app is deployed live at <https://event-app.joonsunn.com>.
 
 ## Installation
 
-1. Clone this repo
-   2a. On Linux/Mac machines, run in terminal:
+1. Clone this repo.
+2. Examine the `.env.example` file in the `server` folder and supply the values accordingly in that folder.
+
+3a. On Linux/Mac machines, run in terminal at the root of the repo (the directory that contains the 'Makefile' file):
 
 ```bash
 make build
 make start
 ```
 
-2a. On Windows machines:
+3b. On Windows machines:
 
 Install dependencies:
 
@@ -20,7 +22,7 @@ Install dependencies:
 cd client && npm install && npm run build && cd ../server && npm install
 ```
 
-Run:
+While still in `server` folder (otherwise, navigate to it), run:
 
 ```bash
 npm run start
