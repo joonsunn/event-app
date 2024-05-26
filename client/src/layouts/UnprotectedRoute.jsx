@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 const UnprotectedRoute = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
-  if (user?.token) {
-    // window.location.href = "/admin";
-    navigate("/admin");
-  }
+  useEffect(() => {
+    if (user?.token) {
+      // window.location.href = "/admin";
+      navigate("/admin");
+    }
+  }, [navigate, user?.token]);
   return (
     <>
       {/* <div>UnprotectedRoute</div> */}

@@ -5,8 +5,11 @@ import Button from "@mui/material/Button";
 import AdminTableRow from "./AdminTableRow";
 import axios from "axios";
 import { getToken } from "../services/loginService";
+import { useMediaQuery } from "@mui/material";
 
 const AdminTable = ({ statusFilter }) => {
+  const isMobile = useMediaQuery("(max-width: 600px)");
+
   const { data: events } = useQuery({
     queryKey: ["events", statusFilter],
     queryFn: () => getEvents(statusFilter),
@@ -15,8 +18,6 @@ const AdminTable = ({ statusFilter }) => {
   const queryClient = useQueryClient();
 
   const { mutate: handleDeleteEvent } = useMutation({
-    // mutationFn: (id) =>
-    //   axios.delete(`http://localhost:3001/api/events/${id}`, getToken()),
     mutationFn: (id) => deleteEvent(id),
     onSettled: () => {
       queryClient.invalidateQueries(["events"]);
@@ -24,10 +25,7 @@ const AdminTable = ({ statusFilter }) => {
   });
 
   const { mutate: handleUpdateEvent } = useMutation({
-    // mutationFn: (id) =>
-    //   axios.delete(`http://localhost:3001/api/events/${id}`, getToken()),
     mutationFn: async ({ id, event }) => {
-      console.log("mutation:", event);
       await updateEvent(id, event);
     },
     onSuccess: () => {
@@ -35,21 +33,20 @@ const AdminTable = ({ statusFilter }) => {
     },
   });
 
-  //   console.log(events ? events : "");
-  // TODO: useMutation for delete and update event
   return (
     <>
-      {/* <div>AdminTable</div> */}
-      {/* {events && events.map((event) => <div key={event.id}>{event.name}</div>)} */}
       <table style={{ margin: "auto" }}>
         <thead>
           <tr>
             <th>Event Name</th>
-            {/* <th>Description</th> */}
+            {!isMobile && <th>Description</th>}
             <th>Organiser</th>
-            {/* <th>Location</th> */}
+
+            {!isMobile && <th>Location</th>}
+
             <th>Date</th>
-            {/* <th>Time</th> */}
+            {!isMobile && <th>Time</th>}
+
             <th>Status</th>
             <th>Actions</th>
           </tr>

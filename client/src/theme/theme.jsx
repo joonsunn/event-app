@@ -18,7 +18,7 @@ export default function MyThemeProvider({ children }) {
     : "light";
   const useSystemTheme = false;
   const [myTheme, setMyTheme] = useState(
-    useSystemTheme ? systemThemePreference : "light"
+    useSystemTheme ? systemThemePreference : "dark"
   );
 
   const themeOptions = {

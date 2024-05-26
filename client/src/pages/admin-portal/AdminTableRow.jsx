@@ -11,6 +11,7 @@ import {
   Select,
   TextField,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useState } from "react";
 import { FormRow } from "./styles";
@@ -42,6 +43,9 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
     location: event.location,
     completed: event.completed,
   });
+
+  const isMobile = useMediaQuery("(max-width: 600px)");
+
   const handleDeleteEvent = async () => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this event?"
@@ -104,11 +108,15 @@ const AdminTableRow = ({ event, deleteEvent, updateEvent }) => {
         // </form>
         <tr key={event.id}>
           <td>{event.name}</td>
-          {/* <td>{event.description}</td> */}
+          {!isMobile && <td>{event.description}</td>}
           <td>{event.organiser}</td>
+          {!isMobile && <td>{event.location}</td>}
+
           {/* <td>{event.location}</td> */}
           <td>{new Date(event.eventDate).toDateString()}</td>
-          {/* <td>{event.time}</td> */}
+          {!isMobile && <td>{event.time}</td>}
+
+          {/* */}
           <td>{event.completed ? "Completed" : "Upcoming"}</td>
           <td>
             <Box sx={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>

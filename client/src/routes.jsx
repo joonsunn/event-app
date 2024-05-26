@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
-// import NotFound from "./pages/notFound404/NotFound";
+import NotFound from "./pages/notFound/NotFound";
 // import Main from "./pages/main/Main";
 // import About from "./pages/about/About";
 import Layout from "./layouts/Layout";
@@ -30,14 +30,14 @@ function Router() {
           />
         </Route>
       </Route>
-      {/* <Route
+      <Route
         path="/404"
         element={<NotFound />}
-      /> */}
-      {/* <Route
+      />
+      <Route
         path="*"
         element={<Navigate to="/404" />}
-      /> */}
+      />
     </Routes>
   );
 }
