@@ -10,9 +10,9 @@ function App() {
   return (
     <MyThemeProvider>
       <UserContextProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Router />
-        </HashRouter>
+        </BrowserRouter>
       </UserContextProvider>
     </MyThemeProvider>
   );
