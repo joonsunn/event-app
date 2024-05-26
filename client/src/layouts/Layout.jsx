@@ -21,6 +21,7 @@ const Layout = () => {
         sx={{
           marginTop: "120px",
         }}
+        maxWidth={"xl"}
       >
         <Outlet />
       </Container>

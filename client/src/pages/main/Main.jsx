@@ -22,7 +22,7 @@ const Main = () => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: isMobile ? "center" : "flex-start",
           alignItems: "center",
           gap: "24px",
           marginBottom: "36px",
@@ -62,7 +62,7 @@ const Main = () => {
             ? "repeat(2, 1fr)"
             : isDesktop
             ? "repeat(3, 1fr)"
-            : "repeat(3, 1fr)",
+            : "repeat(4, 1fr)",
         }}
       >
         {events?.length > 0 ? (

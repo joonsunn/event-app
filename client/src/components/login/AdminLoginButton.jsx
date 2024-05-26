@@ -27,9 +27,9 @@ const AdminLoginButton = () => {
           <Button
             onClick={handleClick}
             variant="contained"
-            sx={{ padding: "4px 4px" }}
+            sx={{ padding: "4px 8px" }}
           >
-            Admin
+            Admin Sign In
           </Button>
           <DialogWithOwnState ref={dialogRef}>
             <AdminLoginScreen handleClose={handleClose} />
@@ -39,7 +39,7 @@ const AdminLoginButton = () => {
         <Button
           variant="contained"
           onClick={handleLogout}
-          sx={{ padding: "4px 4px" }}
+          sx={{ padding: "4px 8px" }}
         >
           Sign out
         </Button>

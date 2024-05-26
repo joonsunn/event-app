@@ -12,15 +12,7 @@ const Admin = () => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "flex-start",
-        }}
-      >
-        <CreateEventButton />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: isMobile ? "center" : "flex-start",
           alignItems: "center",
           gap: "24px",
           marginBottom: "36px",
