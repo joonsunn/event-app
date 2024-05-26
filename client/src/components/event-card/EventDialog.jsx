@@ -46,11 +46,11 @@ const EventDialog = ({ event, handleClose }) => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "0.3fr 1fr",
+            gridTemplateColumns: "0.5fr 1fr",
             maxWidth: "500px",
           }}
         >
-          <Typography>Organiser</Typography>
+          <Typography>Host</Typography>
           <Typography>{event.organiser}</Typography>
 
           <Typography>{`Start`}</Typography>

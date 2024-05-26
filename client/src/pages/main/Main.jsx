@@ -22,7 +22,7 @@ const Main = () => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           gap: "24px",
           marginBottom: "36px",

@@ -13,7 +13,8 @@ const Footer = () => {
         alignItems: "center",
       }}
     >
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher /> */}
+      <Box>{""}</Box>
     </Box>
   );
 };

@@ -11,6 +11,7 @@ const Header = () => {
     <Box
       style={{
         display: "flex",
+        flexDirection: "column",
         gap: "8px",
         position: "absolute",
         top: 0,
@@ -26,15 +27,15 @@ const Header = () => {
           width: isMobile ? "100%" : "80%",
           // justifyContent: "space-evenly",
           justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
         <ThemeSwitcher />
-
-        <Typography variant="h4">
-          Events App {path === "/admin" ? " - Admin Portal" : ""}
-        </Typography>
         <AdminLoginButton />
       </Box>
+      <Typography variant="h4">
+        Events App {path === "/admin" ? " - Admin Portal" : ""}
+      </Typography>
     </Box>
   );
 };
