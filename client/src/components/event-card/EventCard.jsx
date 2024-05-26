@@ -1,6 +1,7 @@
 import { Box, Button, Typography, useTheme } from "@mui/material";
 import React, { useRef } from "react";
-import DialogWithOwnState from "./DialogWithOwnState";
+import DialogWithOwnState from "../DialogWithOwnState";
+import EventDialog from "./EventDialog";
 
 const EventCard = ({ event }) => {
   const theme = useTheme();
@@ -27,12 +28,22 @@ const EventCard = ({ event }) => {
         }}
         onClick={handleClick}
       >
-        <Typography>Event name: {event.name}</Typography>
-        <Typography>Organised by : {event.organiser}</Typography>
-        <Typography>Description: {event.description}</Typography>
+        <Typography>
+          {event.name} by {event.organiser}
+        </Typography>
+        <Typography>
+          Date/Time: {event.eventDate} {event.time}
+        </Typography>
+        <Typography>Location: {event.location}</Typography>
       </Box>
-      <DialogWithOwnState ref={dialogRef}>
-        <Box>Event Card</Box>
+      <DialogWithOwnState
+        ref={dialogRef}
+        fullWidth
+      >
+        <EventDialog
+          event={event}
+          handleClose={handleClose}
+        />
       </DialogWithOwnState>
     </>
   );

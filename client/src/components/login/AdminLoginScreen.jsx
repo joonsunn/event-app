@@ -23,6 +23,7 @@ import { login } from "../../pages/services/loginService";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContextProvider";
 import { FormRow } from "../../pages/admin-portal/styles";
+import { useNavigate } from "react-router-dom";
 
 const AdminLoginScreen = ({ handleClose }) => {
   const [error, setError] = useState({ error: false, message: "" });
@@ -31,6 +32,7 @@ const AdminLoginScreen = ({ handleClose }) => {
   // const [formState, setFormState] = useState({});
 
   const [timeoutId, setTimeoutId] = useState(null);
+  const navigate = useNavigate();
 
   const handleLoginError = (errroMessage) => {
     if (timeoutId) {
@@ -57,7 +59,9 @@ const AdminLoginScreen = ({ handleClose }) => {
     if (!response.error) {
       setUser(response);
       localStorage.setItem("user", JSON.stringify(response));
-      window.location.href = "/admin";
+      // window.location.href = "/admin";
+      navigate("/admin");
+
       handleClose();
     } else {
       handleLoginError(response.message);

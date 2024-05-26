@@ -16,7 +16,7 @@ export default function MyThemeProvider({ children }) {
   const systemThemePreference = useMediaQuery("(prefers-color-scheme: dark)")
     ? "dark"
     : "light";
-  const useSystemTheme = true;
+  const useSystemTheme = false;
   const [myTheme, setMyTheme] = useState(
     useSystemTheme ? systemThemePreference : "light"
   );

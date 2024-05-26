@@ -11,13 +11,13 @@ function App() {
   // const [count, setCount] = useState(0);
 
   return (
-    <UserContextProvider>
-      <BrowserRouter>
-        <MyThemeProvider>
+    <MyThemeProvider>
+      <UserContextProvider>
+        <BrowserRouter>
           <Router />
-        </MyThemeProvider>
-      </BrowserRouter>
-    </UserContextProvider>
+        </BrowserRouter>
+      </UserContextProvider>
+    </MyThemeProvider>
   );
 }
 

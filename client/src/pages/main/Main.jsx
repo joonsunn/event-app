@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { ToggleButtonGroup, Button } from "@mui/material";
-import EventCard from "../../components/EventCard";
+import EventCard from "../../components/event-card/EventCard";
 
 const Main = () => {
   const [statusFilter, setStatusFilter] = useState("all");
@@ -26,6 +26,7 @@ const Main = () => {
           alignItems: "center",
           gap: "24px",
           marginBottom: "36px",
+          flexWrap: "wrap",
         }}
       >
         <Typography>Filter events by: </Typography>

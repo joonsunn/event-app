@@ -20,7 +20,7 @@ const lightThemePalette = {
   },
 
   background: {
-    paper: "#ffffff",
+    paper: "beige ",
     default: "#ffffff",
   },
 };

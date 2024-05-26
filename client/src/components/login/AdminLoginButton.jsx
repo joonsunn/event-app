@@ -9,13 +9,16 @@ import AdminLoginScreen from "./AdminLoginScreen";
 import DialogWithOwnState from "../DialogWithOwnState";
 import { UserContext } from "../../context/UserContextProvider";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminLoginButton = () => {
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate(0);
   const handleLogout = () => {
     setUser({});
     localStorage.clear();
-    window.location.href = "/";
+    // window.location.href = "/";
+    navigate("/");
   };
 
   const dialogRef = useRef();
@@ -29,8 +32,9 @@ const AdminLoginButton = () => {
             onClick={handleClick}
             // primary={+false as unknown as boolean}
             variant="contained"
+            sx={{ padding: "0px 4px" }}
           >
-            Admin Log In
+            Admin
           </Button>
           <DialogWithOwnState ref={dialogRef}>
             <AdminLoginScreen handleClose={handleClose} />
@@ -40,6 +44,7 @@ const AdminLoginButton = () => {
         <Button
           variant="contained"
           onClick={handleLogout}
+          sx={{ padding: "0px 4px" }}
         >
           Sign out
         </Button>
