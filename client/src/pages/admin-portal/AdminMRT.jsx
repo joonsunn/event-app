@@ -103,6 +103,13 @@ const AdminMRT = ({ events, deleteEvent, updateEvent }) => {
       enableHiding={false}
       enableSorting={false}
       enableColumnActions={false}
+      muiTableHeadCellProps={{
+        sx: {
+          div: {
+            justifyContent: "center",
+          },
+        },
+      }}
     />
   );
 };
