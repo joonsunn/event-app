@@ -29,7 +29,7 @@ const Main = () => {
           flexWrap: "wrap",
         }}
       >
-        <Typography>Filter events by: </Typography>
+        {/* <Typography>Filter events by: </Typography> */}
         <ToggleButtonGroup>
           <Button
             variant={statusFilter === "all" ? "contained" : "outlined"}

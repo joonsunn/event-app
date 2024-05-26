@@ -19,7 +19,10 @@ const CreateEventButton = () => {
       >
         Create Event
       </Button>
-      <DialogWithOwnState ref={dialogRef}>
+      <DialogWithOwnState
+        ref={dialogRef}
+        fullWidth
+      >
         <CreateEventScreen handleClose={handleClose} />
       </DialogWithOwnState>
     </>

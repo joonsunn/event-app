@@ -5,7 +5,7 @@ export const FormRow = styled(Box)(() => ({
   alignItems: "center",
   gap: "8px",
   "& .form-label": {
-    minWidth: "100px",
+    minWidth: "80px",
   },
   div: {
     width: "100%",

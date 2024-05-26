@@ -82,7 +82,7 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
     <>
       <DialogTitle>
         <Typography sx={{ fontWeight: "bold", fontSize: "1.5rem" }}>
-          Edit Event
+          Edit
         </Typography>
       </DialogTitle>
       <DialogContent>
@@ -91,7 +91,7 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
             display: "flex",
             flexDirection: "column",
             gap: "8px",
-            padding: "0px 24px",
+            // padding: "0px 24px",
           }}
           onSubmit={(e) => {
             handleUpdateEvent(e);
@@ -99,7 +99,7 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
         >
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Event Name </Typography>
+              <Typography className="form-label">Name </Typography>
               <TextField
                 placeholder="Event Name"
                 defaultValue={event.name}
@@ -109,23 +109,10 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
               />
             </FormRow>
           </FormControl>
+
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Event Description</Typography>
-              <TextField
-                placeholder="Event Description"
-                defaultValue={event.description}
-                variant="standard"
-                name="description"
-                multiline
-                minRows={3}
-                required
-              />
-            </FormRow>
-          </FormControl>
-          <FormControl>
-            <FormRow>
-              <Typography className="form-label">Organised by</Typography>
+              <Typography className="form-label">Host</Typography>
               <TextField
                 placeholder="Event Organiser"
                 defaultValue={event.organiser}
@@ -138,7 +125,7 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
 
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Location</Typography>
+              <Typography className="form-label">Venue</Typography>
               <TextField
                 placeholder="Location"
                 defaultValue={event.location}
@@ -201,7 +188,7 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
           </FormControl>
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Event Status</Typography>
+              <Typography className="form-label">Status</Typography>
               <Select
                 value={eventComplete}
                 sx={{
@@ -239,6 +226,20 @@ const EditEventScreen = ({ event, updateEvent, handleClose }) => {
                 <MenuItem value="High">High</MenuItem>
               </Select>
             </FormRow>
+          </FormControl>
+          <FormControl>
+            {/* <FormRow> */}
+            <Typography className="form-label">Description</Typography>
+            <TextField
+              placeholder="Event Description"
+              defaultValue={event.description}
+              variant="outlined"
+              name="description"
+              multiline
+              minRows={3}
+              required
+            />
+            {/* </FormRow> */}
           </FormControl>
           <DialogActions>
             <Button

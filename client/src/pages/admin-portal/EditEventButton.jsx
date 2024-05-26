@@ -18,7 +18,10 @@ const EditEventButton = ({ event, updateEvent }) => {
       >
         <EditIcon color="action" />
       </Button>
-      <DialogWithOwnState ref={dialogRef}>
+      <DialogWithOwnState
+        ref={dialogRef}
+        fullWidth
+      >
         <EditEventScreen
           handleClose={handleClose}
           event={event}

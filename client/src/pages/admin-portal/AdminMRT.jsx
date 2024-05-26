@@ -22,12 +22,12 @@ const AdminMRT = ({ events, deleteEvent, updateEvent }) => {
       },
       {
         accessorKey: "organiser",
-        header: "Organiser",
+        header: "Host",
         size: 50,
       },
       {
         accessorKey: "location",
-        header: "Location",
+        header: "Venue",
         size: 50,
       },
       {

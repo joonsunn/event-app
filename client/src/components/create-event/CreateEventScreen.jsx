@@ -107,7 +107,7 @@ const CreateEventScreen = ({ handleClose }) => {
     <>
       <DialogTitle>
         <Typography sx={{ fontWeight: "bold", fontSize: "1.5rem" }}>
-          Create Event
+          Create
         </Typography>
       </DialogTitle>
       <DialogContent>
@@ -116,7 +116,7 @@ const CreateEventScreen = ({ handleClose }) => {
             display: "flex",
             flexDirection: "column",
             gap: "8px",
-            padding: "0px 24px",
+            // padding: "0px 24px",
           }}
           onSubmit={(e) => {
             //   e.preventDefault();
@@ -125,7 +125,7 @@ const CreateEventScreen = ({ handleClose }) => {
         >
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Event Name </Typography>
+              <Typography className="form-label">Name </Typography>
               <TextField
                 placeholder="Event Name"
                 defaultValue={defaultValues.name}
@@ -135,23 +135,10 @@ const CreateEventScreen = ({ handleClose }) => {
               />
             </FormRow>
           </FormControl>
+
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Event Description</Typography>
-              <TextField
-                placeholder="Event Description"
-                defaultValue={defaultValues.description}
-                variant="standard"
-                name="description"
-                multiline
-                minRows={3}
-                required
-              />
-            </FormRow>
-          </FormControl>
-          <FormControl>
-            <FormRow>
-              <Typography className="form-label">Organised by</Typography>
+              <Typography className="form-label">Host</Typography>
               <TextField
                 placeholder="Event Organiser"
                 defaultValue={defaultValues.organiser}
@@ -164,7 +151,7 @@ const CreateEventScreen = ({ handleClose }) => {
 
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Location</Typography>
+              <Typography className="form-label">Venue</Typography>
               <TextField
                 placeholder="Location"
                 defaultValue={defaultValues.location}
@@ -176,7 +163,7 @@ const CreateEventScreen = ({ handleClose }) => {
           </FormControl>
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Date</Typography>
+              <Typography className="form-label">Start</Typography>
               <Input
                 placeholder="Event Date"
                 defaultValue={defaultValues.eventDate}
@@ -203,7 +190,7 @@ const CreateEventScreen = ({ handleClose }) => {
           </FormControl>
           <FormControl>
             <FormRow>
-              <Typography className="form-label">End Date</Typography>
+              <Typography className="form-label">End</Typography>
               <Input
                 placeholder="End Date"
                 defaultValue={defaultValues.endDate}
@@ -217,7 +204,7 @@ const CreateEventScreen = ({ handleClose }) => {
 
           <FormControl>
             <FormRow>
-              <Typography className="form-label">End Time</Typography>
+              <Typography className="form-label">Time</Typography>
               <Input
                 placeholder="End time"
                 defaultValue={defaultValues.endTime}
@@ -230,7 +217,7 @@ const CreateEventScreen = ({ handleClose }) => {
           </FormControl>
           <FormControl>
             <FormRow>
-              <Typography className="form-label">Event Status</Typography>
+              <Typography className="form-label">Status</Typography>
               <Select
                 value={eventComplete}
                 sx={{
@@ -268,6 +255,18 @@ const CreateEventScreen = ({ handleClose }) => {
                 <MenuItem value="High">High</MenuItem>
               </Select>
             </FormRow>
+          </FormControl>
+          <FormControl>
+            <Typography className="form-label">Description</Typography>
+            <TextField
+              placeholder="Event Description"
+              defaultValue={defaultValues.description}
+              variant="outlined"
+              name="description"
+              multiline
+              minRows={3}
+              required
+            />
           </FormControl>
           <DialogActions>
             <Button

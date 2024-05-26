@@ -59,7 +59,7 @@ const AdminLoginScreen = ({ handleClose }) => {
       <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
         <FormControl>
           <FormRow>
-            <Typography className="form-label">Username: </Typography>
+            <Typography className="form-label">Username </Typography>
             <TextField
               name="username"
               type="text"
@@ -70,7 +70,7 @@ const AdminLoginScreen = ({ handleClose }) => {
         </FormControl>
         <FormControl>
           <FormRow>
-            <Typography className="form-label">Password: </Typography>
+            <Typography className="form-label">Password </Typography>
             <TextField
               variant="standard"
               name="password"
