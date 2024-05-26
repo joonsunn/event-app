@@ -1,2 +1,5 @@
+build:
+	cd client && npm install && npm run build && cd ../server && npm install
+
 start:
-	cd client && npm install && npm run build && cd ../server && npm install && npm run start
+	cd server && npm run start
