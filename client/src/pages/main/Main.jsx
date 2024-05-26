@@ -69,13 +69,18 @@ const Main = () => {
             : "repeat(3, 1fr)",
         }}
       >
-        {events &&
+        {events?.length > 0 ? (
           events?.map((event) => (
             <EventCard
               key={event.id}
               event={event}
             />
-          ))}
+          ))
+        ) : (
+          <Typography
+            textAlign={"center"}
+          >{`No events found as ${statusFilter}.`}</Typography>
+        )}
       </Box>
     </>
   );

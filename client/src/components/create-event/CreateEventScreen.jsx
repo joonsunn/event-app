@@ -14,9 +14,11 @@ import React, { useState } from "react";
 import { FormRow } from "../../pages/admin-portal/styles";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createEvent } from "../../pages/services/eventService";
+import { getDeltaDate, getTodayDate } from "../../utils/timeUtils";
 
 const CreateEventScreen = ({ handleClose }) => {
   const [eventComplete, setEventComplete] = useState(false);
+  const [priority, setPriority] = useState("Low");
   const [error, setError] = useState({ error: false, message: "" });
   const [timeoutId, setTimeoutId] = useState(null);
 
@@ -37,8 +39,10 @@ const CreateEventScreen = ({ handleClose }) => {
     name: "",
     description: "",
     organiser: "",
-    eventDate: "2024-05-01",
+    eventDate: getTodayDate(),
+    endDate: getDeltaDate(getTodayDate(), 1),
     time: "10:00",
+    endTime: "10:00",
     location: "",
     completed: false,
   };
@@ -67,21 +71,39 @@ const CreateEventScreen = ({ handleClose }) => {
     const description = e.target.description.value;
     const organiser = e.target.organiser.value;
     const eventDate = e.target.date.value;
+    const endDate = e.target.endDate.value;
     const time = e.target.time.value;
+    const endTime = e.target.endTime.value;
     const location = e.target.location.value;
     const completed = e.target.completed.value === "true";
+    const priority = e.target.priority.value;
     const newEvent = {
       name,
       description,
       organiser,
       eventDate,
+      endDate,
       time,
+      endTime,
       location,
       completed,
+      priority,
     };
+
+    if (new Date(`${eventDate} ${time}`) > new Date(`${endDate} ${endTime}`)) {
+      handleCreateEventError("End date cannot be before start date");
+      return;
+    }
+    if (new Date(`${endDate} ${endTime}`) < new Date() && !completed) {
+      handleCreateEventError(
+        "Event end date has already passed. Unable to create event as 'ongoing'."
+      );
+      return;
+    }
 
     await handleCreateEventMutation(newEvent);
   };
+
   return (
     <>
       <DialogTitle>
@@ -157,26 +179,21 @@ const CreateEventScreen = ({ handleClose }) => {
               <Input
                 placeholder="Event Date"
                 defaultValue={defaultValues.eventDate}
-                //   variant="standard"
                 type="date"
                 name="date"
                 required
+                // inputProps={{
+                //   min: getTodayDate(),
+                // }}
               />
             </FormRow>
           </FormControl>
           <FormControl>
             <FormRow>
               <Typography className="form-label">Time</Typography>
-              {/* <TextField
-                  placeholder="Event Time"
-                  defaultValue={rowState.time}
-                  variant="standard"
-                  name="time"
-                /> */}
               <Input
                 placeholder="Event time"
                 defaultValue={defaultValues.time}
-                //   variant="standard"
                 type="time"
                 name="time"
                 required
@@ -185,15 +202,35 @@ const CreateEventScreen = ({ handleClose }) => {
           </FormControl>
           <FormControl>
             <FormRow>
+              <Typography className="form-label">End Date</Typography>
+              <Input
+                placeholder="End Date"
+                defaultValue={defaultValues.endDate}
+                //   variant="standard"
+                type="date"
+                name="endDate"
+                required
+              />
+            </FormRow>
+          </FormControl>
+
+          <FormControl>
+            <FormRow>
+              <Typography className="form-label">End Time</Typography>
+              <Input
+                placeholder="End time"
+                defaultValue={defaultValues.endTime}
+                //   variant="standard"
+                type="time"
+                name="endTime"
+                required
+              />
+            </FormRow>
+          </FormControl>
+          <FormControl>
+            <FormRow>
               <Typography className="form-label">Event Status</Typography>
-              {/* <TextField
-                  placeholder="Event Status"
-                  defaultValue={rowState.completed}
-                  variant="standard"
-                  name="status"
-                /> */}
               <Select
-                //   value={event.completed}
                 value={eventComplete}
                 sx={{
                   width: "10px",
@@ -205,8 +242,29 @@ const CreateEventScreen = ({ handleClose }) => {
                 onChange={(e) => setEventComplete(e.target.value)}
                 required
               >
-                <MenuItem value="false">Upcoming</MenuItem>
+                <MenuItem value="false">Ongoing</MenuItem>
                 <MenuItem value="true">Completed</MenuItem>
+              </Select>
+            </FormRow>
+          </FormControl>
+          <FormControl>
+            <FormRow>
+              <Typography className="form-label">Priority</Typography>
+              <Select
+                value={priority}
+                sx={{
+                  width: "10px",
+                  div: {
+                    padding: "6.5px 14px",
+                  },
+                }}
+                name="priority"
+                onChange={(e) => setPriority(e.target.value)}
+                required
+              >
+                <MenuItem value="Low">Low</MenuItem>
+                <MenuItem value="Medium">Medium</MenuItem>
+                <MenuItem value="High">High</MenuItem>
               </Select>
             </FormRow>
           </FormControl>

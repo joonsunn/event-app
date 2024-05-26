@@ -62,24 +62,27 @@ eventsRouter.post(
     const {
       name,
       eventDate,
+      endDate,
+      endTime,
       time,
       location,
       description,
       completed,
       organiser,
-      // organisation,
-      // username,
+      priority,
     } = request.body;
 
     const event = new Event({
       name,
       eventDate,
+      endDate,
+      endTime,
       time,
       location,
       description,
       completed,
       organiser,
-      // username: request.user.username,
+      priority,
     });
 
     const savedEvent = await event.save();
@@ -104,11 +107,14 @@ eventsRouter.patch(
     const event = {
       name: request.body.name,
       eventDate: request.body.eventDate,
-      time: request.body.time, // TODO: add validation for time format
+      endDate: request.body.endDate,
+      time: request.body.time,
+      endTime: request.body.endTime,
       location: request.body.location,
       description: request.body.description,
       completed: request.body.completed,
       organiser: request.body.organiser,
+      priority: request.body.priority,
       edittedDate: Date.now(),
     };
     const updatedEvent = await Event.findByIdAndUpdate(

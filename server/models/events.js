@@ -9,7 +9,15 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  endDate: {
+    type: String,
+    required: true,
+  },
   time: {
+    type: String,
+    required: true,
+  },
+  endTime: {
     type: String,
     required: true,
   },
@@ -29,18 +37,15 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  // organisation: {
-  //   type: String,
-  //   required: true,
-  // },
   organiser: {
     type: String,
     required: true,
   },
-  // username: {
-  //   type: String,
-  //   required: true,
-  // },
+  priority: {
+    type: String,
+    required: true,
+    default: "low",
+  },
   createdDate: {
     type: Date,
     default: Date.now,
