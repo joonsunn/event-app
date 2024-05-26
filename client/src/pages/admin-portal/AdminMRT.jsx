@@ -94,7 +94,7 @@ const AdminMRT = ({ events, deleteEvent, updateEvent }) => {
                 updateEvent={updateEvent}
               />
               <DeleteEventButton
-                id={cell.row.original.id}
+                event={cell.row.original}
                 deleteEvent={deleteEvent}
               />
             </Box>
