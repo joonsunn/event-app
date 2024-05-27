@@ -130,16 +130,16 @@ const AdminMRT = ({ events, deleteEvent, updateEvent }) => {
         },
       }}
       renderTopToolbarCustomActions={() => (
-        <Box
-          sx={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <CreateEventButton />
-        </Box>
+        // <Box
+        //   sx={{
+        //     display: "flex",
+        //     gap: "16px",
+        //     alignItems: "center",
+        //     justifyContent: "center",
+        //   }}
+        // >
+        // </Box>
+        <CreateEventButton />
       )}
     />
   );

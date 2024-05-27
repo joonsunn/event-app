@@ -2,9 +2,10 @@ import React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getEvents, deleteEvent, updateEvent } from "../services/eventService";
 import AdminMRT from "./AdminMRT";
+import { Typography } from "@mui/material";
 
 const AdminTable = ({ statusFilter }) => {
-  const { data: events } = useQuery({
+  const { data: events, isLoading: eventsLoading } = useQuery({
     queryKey: ["events", statusFilter],
     queryFn: () => getEvents(statusFilter),
   });
@@ -29,6 +30,9 @@ const AdminTable = ({ statusFilter }) => {
 
   return (
     <>
+      {eventsLoading && (
+        <Typography textAlign={"center"}>Loading...</Typography>
+      )}
       {events && (
         <AdminMRT
           events={events}

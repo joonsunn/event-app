@@ -8,10 +8,12 @@ import EventCard from "../../components/event-card/EventCard";
 
 const Main = () => {
   const [statusFilter, setStatusFilter] = useState("all");
-  const { data: events } = useQuery({
+  const { data: events, isLoading: eventsLoading } = useQuery({
     queryKey: ["events", statusFilter],
     queryFn: () => getEvents(statusFilter),
   });
+
+  console.log(eventsLoading);
 
   const isMobile = useMediaQuery("(max-width: 600px)");
   const isTablet = useMediaQuery("(max-width: 900px)");
@@ -65,6 +67,9 @@ const Main = () => {
             : "repeat(4, 1fr)",
         }}
       >
+        {eventsLoading && (
+          <Typography textAlign={"center"}>Loading...</Typography>
+        )}
         {events?.length > 0 ? (
           events?.map((event) => (
             <EventCard
