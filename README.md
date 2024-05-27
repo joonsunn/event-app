@@ -2,7 +2,7 @@
 
 An instance of this app is deployed live at <https://event-app.joonsunn.com>.
 
-## Installation
+## Installation and running
 
 1. Clone this repo.
 2. Examine the `.env.example` file in the `server` folder and supply the values accordingly in that folder.
