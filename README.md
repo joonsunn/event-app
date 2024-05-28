@@ -27,3 +27,5 @@ While still in `server` folder (otherwise, navigate to it), run:
 ```bash
 npm run start
 ```
+
+4. Navigate browser to `http://localhost:PORT`, with `PORT` as defined in the `.env` file in Step 2.
