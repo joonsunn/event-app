@@ -8,12 +8,12 @@ eventsRouter.get("/", async (request, response) => {
   return response.json(events);
 });
 
-eventsRouter.get("/organiser/:organiser", async (request, response) => {
-  const events = await Event.find({
-    organiser: request.params.organiser,
-  });
-  return response.json(events);
-});
+// eventsRouter.get("/organiser/:organiser", async (request, response) => {
+//   const events = await Event.find({
+//     organiser: request.params.organiser,
+//   });
+//   return response.json(events);
+// });
 
 eventsRouter.get("/status/:status", async (request, response) => {
   // const user = request.user;
